@@ -14,6 +14,9 @@ class ProductsController < ApplicationController
       redirect_to products_path, notice: 'El producto se creo de forma exitosa.'
     else
       render :new, status: :unprocessable_entity
+      puts "************************************************"
+      puts @product.errors.full_messages
+      puts "************************************************"
     end
   end
 
