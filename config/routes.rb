@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   #get 'products/:id/edit', to: 'products#edit', as: :edit_product
   #patch 'products/:id', to: 'products#update'
 
-  resources :products
+  resources :products do
+    get 'search', on: :collection #products/search => products#search
+  end
 
   root "main#welcome"
 end
