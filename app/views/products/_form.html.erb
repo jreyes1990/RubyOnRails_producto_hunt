@@ -1,8 +1,8 @@
 <%= form_with model:@product do |form| %>
     <% if @product.errors.any? %>
       <div>
-        <% @product.errors.each do |msj_error| %>
-          <li><%= msj_error.full_messages %></li>
+        <% @product.errors.each do |error| %>
+          <li><%= error.full_messages %></li>
         <% end %>
       </div>
     <% end %>
