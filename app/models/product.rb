@@ -13,4 +13,5 @@ class Product < ApplicationRecord
   validates :name, presence: {message: 'El nombre es requerido.'}
   validates :description, presence: {message: 'La descripcion es requerida.'}
   validates :name, length: {maximum: 200, minimum: 2}
+  validates :name, :uniqueness => {message: 'El nombre debe ser unico'}
 end

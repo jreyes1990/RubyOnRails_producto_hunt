@@ -1,8 +1,9 @@
-<%= form_with model:@product do |form| %>
+<%= form_for @product do |form| %>
     <% if @product.errors.any? %>
+    <h2>EL FORMULARIO POSEE <%= @product.errors.count %> ERROR(ES)</h2>
       <div class="mb-4">
-        <% @product.errors.full_messages.each do |error| %>
-          <li><%= error %></li>
+        <% @product.errors.full_messages.each do |msj_error| %>
+          <li><%= msj_error %></li>
         <% end %>
       </div>
     <% end %>
