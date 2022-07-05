@@ -27,7 +27,7 @@ class Product < ApplicationRecord
 
   has_many :product_categories
   has_many :categories, through: :product_categories #join: union de categorias a product_cate
-  has_many :comments #Un producto puede poseer multiples comentarios
+  has_many :comments, -> { order('id DESC')} #Un producto puede poseer multiples comentarios
 
   accepts_nested_attributes_for :categories #Se podra relacionar las categorias con los productos
 
