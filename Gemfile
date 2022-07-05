@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'friendly_id', '~> 5.4.0'
 
+gem 'will_paginate', '~> 3.3'
+
 gem 'wdm', '>= 0.1.0'
 
 group :development, :test do
