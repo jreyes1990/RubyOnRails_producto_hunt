@@ -46,16 +46,16 @@ class ProductsController < ApplicationController
 
   def search
     @q = params[:q]
-    @products = Product.where("name LIKE ?","%#{@q}%")
+    @products = Product.where("name LIKE ?","%#{@q}%").where(visible: true)
   end
 
   private
   def set_product
     #@product = Product.find(params[:id])
-    @product = Product.friendly.find(params[:id]).upcase.where(visible: true)
+    @product = Product.friendly.find(params[:id])
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :visible)
+    params.require(:product).permit(:name, :description, :visible, :image)
   end
 end
