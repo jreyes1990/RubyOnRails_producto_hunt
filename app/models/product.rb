@@ -19,4 +19,7 @@ class Product < ApplicationRecord
   validates :name, :uniqueness => {message: 'El nombre debe ser unico'}
 
   has_one_attached :image, :dependent => :destroy
+
+  has_many :product_categories
+  has_many :categories, through: :product_categories #join: union de categorias a product_cate
 end
