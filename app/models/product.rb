@@ -22,4 +22,11 @@ class Product < ApplicationRecord
 
   has_many :product_categories
   has_many :categories, through: :product_categories #join: union de categorias a product_cate
+
+  accepts_nested_attributes_for :categories #Se podra relacionar las categorias con los productos
+
+  def category_default
+    return self.categories.last.name if self.categories.any?
+    'Sin Categoria'
+  end
 end
