@@ -3,11 +3,16 @@
 # Table name: products
 #
 #  id          :integer          not null, primary key
-#  name        :string
 #  description :string
+#  name        :string
+#  slug        :string
 #  visible     :boolean          default(TRUE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#
+# Indexes
+#
+#  index_products_on_slug  (slug) UNIQUE
 #
 class Product < ApplicationRecord
   extend FriendlyId
@@ -22,6 +27,7 @@ class Product < ApplicationRecord
 
   has_many :product_categories
   has_many :categories, through: :product_categories #join: union de categorias a product_cate
+  has_many :comments #Un producto puede poseer multiples comentarios
 
   accepts_nested_attributes_for :categories #Se podra relacionar las categorias con los productos
 
