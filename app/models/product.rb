@@ -25,9 +25,9 @@ class Product < ApplicationRecord
 
   has_one_attached :image, :dependent => :destroy
 
-  has_many :product_categories
+  has_many :product_categories, :dependent => :destroy
   has_many :categories, through: :product_categories #join: union de categorias a product_cate
-  has_many :comments, -> { order('id DESC')} #Un producto puede poseer multiples comentarios
+  has_many :comments, -> { order('id DESC')}, :dependent => :destroy  #Un producto puede poseer multiples comentarios
 
   accepts_nested_attributes_for :categories #Se podra relacionar las categorias con los productos
 
